@@ -12,3 +12,8 @@ Ciclo: CFGS Administración de Sistemas Informáticos en Red
 3. README.md—Enlace para repositorio.
 
 **Pasos seguidos**
+
+
+**¿Algo falla? Comrpueba estos archivos**
+/etc/php/7.4/fpm/php.ini
+/etc/php/7.4/fpm/pool.d/www.conf

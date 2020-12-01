@@ -16,7 +16,14 @@ BLOWFISH=`tr -dc A-Za-z0-9 < /dev/urandom | head -c 64`
 set -x
 # Actualizamos la lista de paquetes
 apt update
-apt upgrade -y
+# Instalamos el servidor web Nginx
+apt install nginx -y
+# Instalamos los módulos necesarios de PHP
+apt install php php-fpm php-mysql -y
+# Editamos el archivo de configuración /etc/nginx/sites-available/default para que nginx pueda comunicarse a través de un socket UNIX con el proceso php-fpm.
+cp $pwd/default /etc/nginx/sites-available/default
+
+
 ## Instalamos el servidor web Apache (Comentado para referencia)
 ##apt install apache2 -y
 ## Instalamos los módulos necesarios de PHP
