@@ -20,8 +20,15 @@ apt update
 apt install nginx -y
 # Instalamos los módulos necesarios de PHP
 apt install php php-fpm php-mysql -y
-# Editamos el archivo de configuración /etc/nginx/sites-available/default para que nginx pueda comunicarse a través de un socket UNIX con el proceso php-fpm.
+# Editamos el archivo de configuración de php-fpm /etc/php/7.4/fpm/pool.d/www.conf
+#??
+
+# Reiniciamos el servicio
+systemctl restart php7.4-fpm
+# Copiamos el archivo de configuración 'default' a Nginx
 cp $pwd/default /etc/nginx/sites-available/default
+# Reiniciamos Nginx para que se apliquen los cambios
+systemctl restart nginx
 
 
 ## Instalamos el servidor web Apache (Comentado para referencia)
