@@ -5,9 +5,12 @@ Práctica seis de la asignatura IAW de 2º de Asir.
 Módulo: IAW - Implantación de Aplicaciones Web
 Ciclo: CFGS Administración de Sistemas Informáticos en Red
 
+**Introducción**
+En esta práctica usaremos una pila LEMP, usando Nginx en vez de Apache. Se ha modificado el script front_end de prácticas anteriores para integrar el servidor nginx a tal efecto.
+
 **Archivos en el repositorio**
 ------------
-1. front_end.sh—Script de bash para instalar los elementos en el servidor front-end. Carpeta diferenciada. Versión nginx.
+1. lemp.sh—Script de bash para instalar los elementos en el servidor front-end. Carpeta diferenciada. Versión nginx.
 2. back_end.sh-Script de bash para instalar los elementos en el servidor back-end. Carpeta diferenciada.
 3. README.md—Enlace para repositorio.
 
