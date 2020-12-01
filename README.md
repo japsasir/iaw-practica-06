@@ -14,6 +14,6 @@ Ciclo: CFGS Administración de Sistemas Informáticos en Red
 **Pasos seguidos**
 
 
-**¿Algo falla? Comrpueba estos archivos**
-/etc/php/7.4/fpm/php.ini
-/etc/php/7.4/fpm/pool.d/www.conf
+**¿Algo falla? Compueba estos archivos**
+- /etc/php/7.4/fpm/php.ini
+- /etc/php/7.4/fpm/pool.d/www.conf
