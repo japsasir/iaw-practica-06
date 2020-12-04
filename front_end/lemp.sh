@@ -20,8 +20,8 @@ apt update
 apt install nginx -y
 # Instalamos los módulos necesarios de PHP
 apt install php php-fpm php-mysql -y
-# Editamos el archivo de configuración de php-fpm /etc/php/7.4/fpm/pool.d/www.conf
-#??
+# Editamos el archivo de configuración de php-fpm /etc/php/7.4/fpm/pool.d/www.conf, su directiva LISTEN
+sed -i "s#listen = /run/php/phop7.4-fpm.sock#; #listen = 127.0.0.1:9000#" /etc/php/7.4/fpm/pool.d/www.conf
 
 # Reiniciamos el servicio
 systemctl restart php7.4-fpm
@@ -30,11 +30,6 @@ cp $pwd/default /etc/nginx/sites-available/default
 # Reiniciamos Nginx para que se apliquen los cambios
 systemctl restart nginx
 
-
-## Instalamos el servidor web Apache (Comentado para referencia)
-##apt install apache2 -y
-## Instalamos los módulos necesarios de PHP
-## apt install php libapache2-mod-php php-mysql php-mbstring -y
 
 # ------------------------------------------------------------------------------ Instalación aplicación web ------------------------------------------------------------------------------ 
 # Clonamos el repositorio de la aplicación
