@@ -21,12 +21,13 @@ apt install nginx -y
 # Instalamos los módulos necesarios de PHP
 apt install php-fpm php-mysql php-mbstring -y
 # Editamos el archivo de configuración de php-fpm /etc/php/7.4/fpm/pool.d/www.conf, su directiva LISTEN
+## La siguiente línea no funcionaba. He probado a realizar la práctica sin cambiar el socker y funciona perfectamente.
 ## (No está funcionando) sed -i "s#listen = /run/php/php7.4-fpm.sock#listen = 127.0.0.1:9000#" /etc/php/7.4/fpm/pool.d/www.conf
-# [Ampliación]Cambio en la directiva de configuración por cuestiones de seguridad
+# [Ampliación]Cambio en la directiva de configuración por cuestiones de seguridad (Se puede inyectar código malicioso en imágenes de otra manera)
 sed -i "s#;cgi.fix_pathinfo=1#cgi.fix_pathinfo=0#" /etc/php/7.4/fpm/php.ini
 # Reiniciamos el servicio
 systemctl restart php7.4-fpm
-# Copiamos el archivo de configuración 'default' a Nginx
+# Copiamos el archivo de configuración 'default' a Nginx. El sitio por defecto incluye la configuración necesaria.
 cp default /etc/nginx/sites-available/default
 # Reiniciamos Nginx para que se apliquen los cambios
 systemctl restart nginx
