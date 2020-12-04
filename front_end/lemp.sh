@@ -8,7 +8,7 @@ HTTPASSWD_USER=usuario
 HTTPASSWD_PASSWD=usuario
 
 ### IP del Servidor MySQL. ¡Hay que ajustarla cada vez que se cambia el servidor!
-IP_PRIVADA=
+IP_PRIVADA=172.31.52.37
 ### Contraseña aleatoria para el parámetro blowfish_secret de nuestro config.inc.php
 BLOWFISH=`tr -dc A-Za-z0-9 < /dev/urandom | head -c 64`
 # ------------------------------------------------------------------------------ Instalación de Nginx ------------------------------------------------------------------------------ 
