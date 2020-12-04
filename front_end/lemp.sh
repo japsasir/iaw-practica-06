@@ -21,12 +21,11 @@ apt install nginx -y
 # Instalamos los módulos necesarios de PHP
 apt install php php-fpm php-mysql -y
 # Editamos el archivo de configuración de php-fpm /etc/php/7.4/fpm/pool.d/www.conf, su directiva LISTEN
-sed -i "s#listen = /run/php/phop7.4-fpm.sock#; #listen = 127.0.0.1:9000#" /etc/php/7.4/fpm/pool.d/www.conf
-
+sed -i "s#listen = /run/php/php7.4-fpm.sock#listen = 127.0.0.1:9000#" /etc/php/7.4/fpm/pool.d/www.conf
 # Reiniciamos el servicio
 systemctl restart php7.4-fpm
 # Copiamos el archivo de configuración 'default' a Nginx
-cp $pwd/default /etc/nginx/sites-available/default
+cp default /etc/nginx/sites-available/default
 # Reiniciamos Nginx para que se apliquen los cambios
 systemctl restart nginx
 
@@ -43,9 +42,9 @@ mv /var/www/html/iaw-practica-lamp/src/*  /var/www/html/
 # Configuramos el archivo php de la aplicacion. En https://linuxhint.com/bash_sed_examples/ podemos leer sobre las especificaciones del comando sed y el operador -i, que reemplazarán la línea. Ojo a las comillas, tienen que ser dobles.
 sed -i "s/localhost/$IP_PRIVADA/" /var/www/html/config.php
 
-## Eliminamos el archivo Index.html de apache (Comentado para referencia)
-## rm -rf /var/www/html/index.html
-## rm -rf /var/www/html/iaw-practica-lamp/
+## Eliminamos el archivo Index.html de apache
+rm -rf /var/www/html/index.html
+rm -rf /var/www/html/iaw-practica-lamp/
 
 # Cambiamos permisos 
 chown www-data:www-data * -R
