@@ -22,6 +22,8 @@ apt install nginx -y
 apt install php php-fpm php-mysql -y
 # Editamos el archivo de configuración de php-fpm /etc/php/7.4/fpm/pool.d/www.conf, su directiva LISTEN
 sed -i "s#listen = /run/php/php7.4-fpm.sock#listen = 127.0.0.1:9000#" /etc/php/7.4/fpm/pool.d/www.conf
+# Cambio en la directiva de configuración por cuestiones de seguridad
+sed -i "s#;cgi.fix_pathinfo=1#cgi.fix_pathinfo=0#" /etc/php/7.4/fpm/php.ini
 # Reiniciamos el servicio
 systemctl restart php7.4-fpm
 # Copiamos el archivo de configuración 'default' a Nginx
