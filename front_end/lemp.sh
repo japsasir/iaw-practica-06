@@ -19,7 +19,7 @@ apt update
 # Instalamos el servidor web Nginx
 apt install nginx -y
 # Instalamos los módulos necesarios de PHP
-apt install php-fpm php-mysql -y
+apt install php-fpm php-mysql php-mbstring -y
 # Editamos el archivo de configuración de php-fpm /etc/php/7.4/fpm/pool.d/www.conf, su directiva LISTEN
 ## (No está funcionando) sed -i "s#listen = /run/php/php7.4-fpm.sock#listen = 127.0.0.1:9000#" /etc/php/7.4/fpm/pool.d/www.conf
 # [Ampliación]Cambio en la directiva de configuración por cuestiones de seguridad
