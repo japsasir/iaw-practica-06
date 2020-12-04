@@ -30,8 +30,6 @@ systemctl restart php7.4-fpm
 cp default /etc/nginx/sites-available/default
 # Reiniciamos Nginx para que se apliquen los cambios
 systemctl restart nginx
-
-
 # ------------------------------------------------------------------------------ Instalación aplicación web ------------------------------------------------------------------------------ 
 # Clonamos el repositorio de la aplicación
 cd /var/www/html 
